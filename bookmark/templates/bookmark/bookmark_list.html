@@ -1,0 +1,28 @@
+<div class="btn-group">
+  <a href="{% url 'add' %}" class="btn btn-info">북마크 추가</a>
+</div>
+
+<p></p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">사이트</th>
+      <th scope="col">URL</th>
+      <th scope="col">수정</th>
+      <th scope="col">삭제</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for bookmark in object_list %}
+      <tr>
+        <td>{{forloop.counter}}</td>
+        <td><a href="{% url 'detail' pk=bookmark.id %}">{{bookmark.site_name}}</a></td>
+        <td><a href="{{bookmark.url}}" target="_blank">{{bookmark.url}}</a></td>
+        <td><a href="{% url 'update' pk=bookmark.id %}" class="btn btn-success btn-sm">수정</a></td>
+        <td><a href="{% url 'delete' pk=bookmark.id %}" class="btn btn-danger btn-sm">삭제</a></td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
