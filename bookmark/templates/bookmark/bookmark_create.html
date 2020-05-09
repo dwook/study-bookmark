@@ -1,5 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}
+북마크 추가
+{% endblock title%}
+
+{% block content %}
 <form action="" method="POST">
   {% csrf_token %}
   {{form.as_p}}
   <input type="submit" value="추가" class="btn btn-info btn-sm">
 </form>
+{% endblock content %}
+

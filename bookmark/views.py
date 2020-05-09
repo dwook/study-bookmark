@@ -7,6 +7,7 @@ from .models import Bookmark
 
 class BookmarkListView(ListView):
     model = Bookmark
+    paginate_by = 6
 
 class BookmarkCreateView(CreateView):
     model = Bookmark
@@ -24,4 +25,5 @@ class BookmarkUpdateView(UpdateView):
 
 class BookmarkDeleteView(DeleteView):
     model = Bookmark
-    success_url = reverse_lazy('list') # 삭제 완료하고 이동할 페이지
+    success_url = reverse_lazy('list')  # 삭제 완료하고 이동할 페이지
+
